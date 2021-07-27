@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div>
+  개발자도구에서 콘솔 로그를 확인해주세요.
+</div>
+<script>
+const state = {
+  a: 10,
+  b: 20,
+};
+
+const stateKeys = Object.keys(state);
+
+for (const key of stateKeys) {
+  let _value = state[key];
+  Object.defineProperty(state, key, {
+    get () {
+      console.log(`현재 state.${key}의 값은 ${_value} 입니다.`);
+      return _value;
+    },
+    set (value) {
+      _value = value;
+      console.log(`변경된 state.${key}의 값은 ${_value} 입니다.`);
+    }
+  })
+}
+
+console.log(`a + b = ${state.a + state.b}`);
+
+state.a = 100;
+state.b = 200;
+</script>
+</body>
+</html>

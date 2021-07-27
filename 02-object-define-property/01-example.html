@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div>
+  개발자도구에서 콘솔 로그를 확인해주세요.
+</div>
+<script>
+let a = 10;
+const state = {};
+Object.defineProperty(state, 'a', {
+  get () {
+    console.log(`현재 a의 값은 ${a} 입니다.`)
+    return a;
+  },
+  set (value) {
+    a = value;
+    console.log(`변경된 a의 값은 ${a} 입니다.`)
+  }
+});
+
+console.log(`state.a = ${state.a}`);
+state.a = 100;
+</script>
+</body>
+</html>
