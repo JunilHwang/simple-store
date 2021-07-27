@@ -20,10 +20,6 @@ export class Store {
     })
   }
 
-  getState () {
-    return Object.freeze(this.#state);
-  }
-
   commit (action, payload) {
     this.#mutations[action](this.#state, payload);
   }
